@@ -1,0 +1,12 @@
+{
+  "name": "Newsaholic",
+  "displayName": "Newsaholic",
+  "expo": {
+    "name": "Newsaholic",
+    "slug": "Newsaholic",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
