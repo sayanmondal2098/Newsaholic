@@ -1,8 +1,8 @@
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
 
-import Login from "../containers/screens/Login";
-import Register from "../containers/screens/Register";
+import Login from '../containers/screens/Login/Login';
+import Register from '../containers/screens/Login/Register';
 
 const StackNavigatorOptions = {
   headerShown: false,
