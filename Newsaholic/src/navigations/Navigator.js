@@ -4,18 +4,16 @@ import { createAppContainer } from 'react-navigation';
 import Login from '../containers/screens/Login/Login';
 import Register from '../containers/screens/Login/Register';
 
-
 const StackNavigatorOptions = {
-    headerShown : false
-}
+  headerShown: false,
+};
 
-const AppNavigator = createStackNavigator({
-    Login: {screen: Login},
-    Register:{screen: Register},
-},
-{
-    defaultNavigationOptions : StackNavigatorOptions
-}
+const AppNavigator = createStackNavigator(
+  {
+    Login: { screen: Login },
+    Register: { screen: Register },
+  },
+  { defaultNavigationOptions: StackNavigatorOptions }
 );
 
 export default createAppContainer(AppNavigator);
