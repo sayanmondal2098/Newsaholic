@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text, View, SafeAreaView } from 'react-native';
+import {SafeAreaView, Text, View} from 'react-native';
 
 export default class Login extends React.Component {
-    render() {
+  render() {
         return (
             <View>
                 <SafeAreaView>

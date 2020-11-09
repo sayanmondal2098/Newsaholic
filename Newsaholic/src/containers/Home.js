@@ -1,16 +1,11 @@
 import React from 'react';
-import { View, ImageBackground } from 'react-native';
+import {ImageBackground, View} from 'react-native';
 
 const Home = () => {
-  return (
-    <ImageBackground
-      
-    >
-      <Text>
-          HIIIIII
-      </Text>
-    </ImageBackground>
-  );
+  return (<ImageBackground
+
+           ><Text>HIIIIII</Text>
+    </ImageBackground>);
 };
 
 export default Home;
