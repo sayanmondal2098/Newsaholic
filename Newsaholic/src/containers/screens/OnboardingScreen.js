@@ -20,22 +20,22 @@ const OnboardingScreen = ({ navigation }) => {
                 NextButtonComponent={Next}
                 pages={[
                     {
-                        backgroundColor: '#fff',
+                        backgroundColor: '#a6e4d0',
                         image: <Image source={require('../../../assects/images/Onboard1.png')} />,
-                        title: 'Onboarding 1',
+                        title: 'Newsaholic',
                         subtitle: 'Done with React Native Onboarding Swiper 1',
                     },
                     {
-                        backgroundColor: '#fff',
+                        backgroundColor: '#fdeb93',
                         image: <Image source={require('../../../assects/images/Onboard2.png')} />,
-                        title: 'Onboarding 2',
-                        subtitle: 'Done with React Native Onboarding Swiper 2',
+                        title: 'Stay Connected ',
+                        subtitle: 'Stay informed about your outer world',
                     },
                     {
-                        backgroundColor: '#fff',
+                        backgroundColor: '#e9bcbe',
                         image: <Image source={require('../../../assects/images/Onboard3.png')} />,
-                        title: 'Onboarding 3',
-                        subtitle: 'Done with React Native Onboarding Swiper 3',
+                        title: 'Stay Focused',
+                        subtitle: 'Don\'t think about news paper and focus on your job',
                     },
 
                 ]}
