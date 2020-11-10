@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Button, Image, StyleSheet, SafeAreaView } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
-import { Safe } from "expo";
+// import { Safe } from "expo";
 
 
 const Next = ({...props}) => (
