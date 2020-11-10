@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button, Image, StyleSheet, SafeAreaView } from 'react-native';
+import { Text, View, Button, Image, StyleSheet, SafeAreaView, TouchableNativeFeedback } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
 // import { Safe } from "expo";
 
@@ -7,10 +7,21 @@ import Onboarding from 'react-native-onboarding-swiper';
 const Next = ({...props}) => (
     <Button
     title = 'Next'
-    color = "#000000"
+    color = '#000000'
     {...props}
     />
 )
+
+
+const Skip = ({...props}) => (
+    <Button
+    title = 'Skip'
+    color = '#000000'
+    {...props}
+    />
+)
+
+
 const OnboardingScreen = ({ navigation }) => {
     return (
         
@@ -18,12 +29,13 @@ const OnboardingScreen = ({ navigation }) => {
                 // onSkip={() => navigation.navigation("Login")}
                 // onDone={() => navigation.navigation("Login")}
                 NextButtonComponent={Next}
+                SkipButtonComponent={Skip}
                 pages={[
                     {
                         backgroundColor: '#a6e4d0',
-                        image: <Image source={require('../../../assects/images/Onboard1.png')} />,
+                        image: <Image source={require('../../../assects/images/logo.png')} />,
                         title: 'Newsaholic',
-                        subtitle: 'Done with React Native Onboarding Swiper 1',
+                        subtitle: 'News Beams With Quality',
                     },
                     {
                         backgroundColor: '#fdeb93',
