@@ -1,16 +1,80 @@
 import React from 'react';
-import { Text, View, SafeAreaView } from 'react-native';
+import { View, Image, Text, StyleSheet, Animated } from 'react-native';
+import Logo from '../../../../assects/images/logo.png'
+class Loading extends React.Component {
+    state = {
+        LogoAnime: new Animated.Value(0),
+        LogoText: new Animated.Value(0),
+        loadingSpinner: false
+    }
 
-export default class Loading extends React.Component {
+    componentDidMount() {
+        const { LogoAnime, LogoText } = this.state;
+
+        this.timeoutHandle = setTimeout(()=>{
+            // Add your logic for the transition
+       }, 5000);
+       
+        Animated.parallel([
+            Animated.spring(LogoAnime, {
+                toValue: 1,
+                tension: 10,
+                friction: 2,
+                duration: 1000,
+                useNativeDriver: false
+            }).start(),
+
+            Animated.timing(LogoText, {
+                toValue: 1,
+                duration: 1200,
+                useNativeDriver: true
+            })
+        ]).start(() => {
+            this.setState({
+                loadingSpinner: true
+            })
+        })
+    }
+
     render() {
         return (
-            <View>
-                <SafeAreaView>
-                    <Text>
-                        Loading
-                    </Text>
-                </SafeAreaView>
+            <View style={styles.container}>
+                <Animated.View
+                    style={{
+                        opacity: this.state.LogoAnime,
+                        top: this.state.LogoAnime.interpolate({
+                            inputRange: [0, 1],
+                            outputRange: [120, 0]
+                        })
+                    }}>
+                    <Image style={styles.logo} source={Logo} />
+                </Animated.View>
+                <Animated.View style={{opacity: this.state.LogoText}}>
+                    <Text style={styles.logoText}>Newsaholic</Text>
+                </Animated.View>
             </View >
         )
     }
 }
+
+export default Loading
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+    logo: {
+        width: 130,
+        height: 130
+    },
+
+    logoText: {
+        color: '#0981E4',
+        fontSize: 27,
+        marginTop: 10,
+        fontWeight: '700'
+    }
+})

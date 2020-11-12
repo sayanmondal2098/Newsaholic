@@ -5,13 +5,14 @@ import Login from '../containers/screens/Login/Login';
 import Register from '../containers/screens/Login/Register';
 
 const StackNavigatorOptions = {
-  headerShown: false,
+  headerShown: true,
 };
 
 const AppNavigator = createStackNavigator(
   {
-    Login: { screen: Login },
     Register: { screen: Register },
+    Login: { screen: Login },
+    
   },
   { defaultNavigationOptions: StackNavigatorOptions }
 );
