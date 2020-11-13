@@ -4,8 +4,8 @@ import { Text, View, Button, Image, StyleSheet, SafeAreaView, TouchableOpacity }
 
 import Onboarding from 'react-native-onboarding-swiper';
 // import { Safe } from "expo";
-import Home from "../screens/Home";
-import Login from './Login/Login';
+import { Actions } from "react-native-router-flux";
+
 
 
 const Next = ({ ...props }) => (
@@ -43,8 +43,8 @@ const OnboardingScreen = props => {
             SkipButtonComponent={Skip}
             NextButtonComponent={Next}
             // DoneButtonComponent={Done}
-            onSkip={() => navigation.navigation('Login')}
-            onDone={() => navigation.navigation('Login')}
+            onSkip={() => Actions.replace('login')}
+            onDone={() => Actions.replace('login')}
             pages={[
                 {
                     backgroundColor: '#a6e4d0',

@@ -1,9 +1,14 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet, Animated } from 'react-native';
 import Logo from '../../../../assects/images/logo.png'
+import OnboardingScreen from "../OnboardingScreen";
+import { NavigationActions } from "react-navigation";
+import { createStackNavigator } from '@react-navigation/stack';
+import { Actions } from "react-native-router-flux";
+
 class Loading extends React.Component {
     state = {
-        LogoAnime: new Animated.Value(0),
+        LogoAnime: new Animated.Value(2),
         LogoText: new Animated.Value(0),
         loadingSpinner: false
     }
@@ -11,9 +16,7 @@ class Loading extends React.Component {
     componentDidMount() {
         const { LogoAnime, LogoText } = this.state;
 
-        this.timeoutHandle = setTimeout(()=>{
-            // Add your logic for the transition
-       }, 5000);
+        this.timeoutHandle = setTimeout(() => Actions.OnboardingScreen(), 5000);
        
         Animated.parallel([
             Animated.spring(LogoAnime, {
@@ -37,6 +40,7 @@ class Loading extends React.Component {
     }
 
     render() {
+        const HomeStack = createStackNavigator();
         return (
             <View style={styles.container}>
                 <Animated.View
@@ -50,7 +54,7 @@ class Loading extends React.Component {
                     <Image style={styles.logo} source={Logo} />
                 </Animated.View>
                 <Animated.View style={{opacity: this.state.LogoText}}>
-                    <Text style={styles.logoText}>Newsaholic</Text>
+                    {/* <Text style={styles.logoText}>Newsaholic</Text> */}
                 </Animated.View>
             </View >
         )
