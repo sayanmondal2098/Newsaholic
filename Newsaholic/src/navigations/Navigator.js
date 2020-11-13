@@ -5,7 +5,6 @@ import React from 'react';
 
 import Login from '../containers/screens/Login/Login';
 import Register from '../containers/screens/Login/Register';
-import OnboardingScreen from "../containers/screens/OnboardingScreen";
 
 const RootStack = createStackNavigator();
 

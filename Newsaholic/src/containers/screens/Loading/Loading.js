@@ -16,7 +16,7 @@ class Loading extends React.Component {
     componentDidMount() {
         const { LogoAnime, LogoText } = this.state;
 
-        this.timeoutHandle = setTimeout(() => Actions.OnboardingScreen(), 5000);
+        this.timeoutHandle = setTimeout(() => Actions.OnboardingScreen(), 3000);
        
         Animated.parallel([
             Animated.spring(LogoAnime, {

@@ -21,6 +21,7 @@ const Skip = ({ ...props }) => (
     <Button
         title="Skip"
         color="#000000"
+        {...props}
     />
 )
 
@@ -31,6 +32,7 @@ const Done = ({ ...props }) => (
         <Text style={{fontSize:16}}>
             Done
         </Text>
+        {/* {...props} */}
     </TouchableOpacity>
 )
 
