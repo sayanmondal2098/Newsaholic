@@ -3,22 +3,29 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import AppNavigator from './src/navigations/Navigator';
+// import NavStack from './src/navigations/Navigator';
 import OnboardingScreen from './src/containers/screens/OnboardingScreen';
+import Login from "./src/containers/screens/Login/Login";
+import Loading from "./src/containers/screens/Loading/Loading";
+import { Router, Stack, Scene } from 'react-native-router-flux'
 
 const AppStack = createStackNavigator();
+const RootStack = createStackNavigator();
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <AppStack.Navigator
-        headerMode="none"
-      >
-        <AppStack.Screen name="Onboarding" component={OnboardingScreen} />
-        <AppStack.Screen name="AppNavigation" component={AppNavigator} />
-      </AppStack.Navigator>
-    </NavigationContainer>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+
+          <Router>
+            <Scene key="root" hideNavBar={true} showLabel={false}>
+              <Scene key="loading" component={Loading} hideNavBar={true} showLabel={false}/>
+              <Scene key="OnboardingScreen" component={OnboardingScreen} hideNavBar={true} showLabel={false} />
+              <Scene key="login" component={Login} hideNavBar={true} showLabel={false}/>
+            </Scene>
+          </Router>
+
+    );
+  }
 }
 const styles = StyleSheet.create({
   container: {
