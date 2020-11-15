@@ -22,7 +22,7 @@ export default class App extends React.Component {
               <Scene key="loading" component={Loading} hideNavBar={true} showLabel={false}/>
               <Scene key="OnboardingScreen" component={OnboardingScreen} hideNavBar={true} showLabel={false} />
               <Scene key="login" component={Login} hideNavBar={true} showLabel={false}/>
-              <Scene key="Register" component={Register} hideNavBar={true} showLabel={false}/>
+              <Scene key="register" component={Register} hideNavBar={true} showLabel={false}/>
             </Scene>
           </Router>
 

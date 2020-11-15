@@ -5,7 +5,7 @@ import { faKey, faUser } from '@fortawesome/free-solid-svg-icons'
 import { Actions } from "react-native-router-flux";
 import signinImage from "../../../../assects/images/signin.png"
 
-export default class Login extends React.Component {
+class Login extends React.Component {
   render() {
     return (
       <View style={styles.loginPage}>
@@ -27,15 +27,19 @@ export default class Login extends React.Component {
 
         {/* Text Input, Sign In & New User */}
         <View
-          style={styles.textInputBox}>
+          style={styles.textInputBox1}>
           <FontAwesomeIcon icon={faUser} color="#00716F" size={24} />
           <TextInput
+            placeholder="Username"
+            placeholderTextColor="black"
             style={styles.textInput}
           />
         </View>
-        <View style={styles.textInputBox}>
+        <View style={styles.textInputBox2}>
           <FontAwesomeIcon icon={faKey} color="#00716F" size={24} />
           <TextInput
+            placeholder="Password"
+            placeholderTextColor="black"
             secureTextEntry={true}
             style={styles.textInput}
           />
@@ -43,7 +47,7 @@ export default class Login extends React.Component {
         <View style={styles.signIn}>
           <Text style={{
             color: "white",
-          }}>Sign In</Text>
+          }}>Log In</Text>
         </View>
         <Text style={styles.newUser}>
           <Text
@@ -52,8 +56,8 @@ export default class Login extends React.Component {
           </Text>
           <Text
             style={{ color: "#00716F", fontSize: 17 }}
-            onPress={() => Actions.replace('Register')}>
-            &nbsp;Sign Up
+            onPress={() => Actions.replace('register')}>
+            &nbsp;Register
           </Text>
         </Text>
 
@@ -77,6 +81,8 @@ export default class Login extends React.Component {
   }
 }
 
+export default Login
+
 const styles = StyleSheet.create({
   loginPage: {
     backgroundColor: "#FFF",
@@ -97,12 +103,24 @@ const styles = StyleSheet.create({
     marginTop: 5,
     opacity: 0.4
   },
-  textInputBox: {
+  textInputBox1: {
     flexDirection: "row",
     alignItems: "center",
     marginHorizontal: 55,
     borderWidth: 2,
     marginTop: 30,
+    paddingHorizontal: 10,
+    borderColor: "#00716F",
+    borderRadius: 23,
+    paddingVertical: 2
+  },
+  textInputBox2: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginHorizontal: 55,
+    borderWidth: 2,
+    marginTop: 20,
+    marginBottom: 15,
     paddingHorizontal: 10,
     borderColor: "#00716F",
     borderRadius: 23,
