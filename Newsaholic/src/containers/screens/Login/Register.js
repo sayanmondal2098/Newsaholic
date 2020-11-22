@@ -69,8 +69,11 @@ class Register extends React.Component {
             &nbsp;Log In
           </Text>
         </Text>
-
+        
         {/* Google & Facebook */}
+        <View style={styles.registerWith}>
+          <Text>--- REGISTER  WITH ---</Text>
+        </View>
         <View style={styles.otherOptionContainer}>
           <View style={styles.Google}>
             <Text style={{
@@ -154,7 +157,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 55,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    marginTop: 15,
     marginBottom: 10,
     backgroundColor: "#00716F",
     paddingVertical: 10,
@@ -167,8 +170,14 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     color: "#00716F",
     fontWeight: '600',
-    marginTop: 5,
-    marginBottom: 10,
+    marginTop: -2,
+    marginBottom: 5,
+  },
+  registerWith: {
+    flexDirection: "row", 
+    alignItems: "center", 
+    justifyContent: "center", 
+    marginTop: 10
   },
   otherOptionContainer: {
     flex: 1,
@@ -179,7 +188,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 55,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    marginTop: 10,
     backgroundColor: "#BB001B",
     paddingVertical: 15,
     borderRadius: 23,
@@ -192,7 +201,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 55,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    marginTop: 10,
     backgroundColor: "#3B5998",
     paddingVertical: 15,
     borderRadius: 23,
