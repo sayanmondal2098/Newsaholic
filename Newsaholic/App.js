@@ -7,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import OnboardingScreen from './src/containers/screens/OnboardingScreen';
 import Login from "./src/containers/screens/Login/Login";
 import Loading from "./src/containers/screens/Loading/Loading";
+import Register from "./src/containers/screens/Login/Register"
 import { Router, Stack, Scene } from 'react-native-router-flux'
 
 const AppStack = createStackNavigator();
@@ -21,6 +22,7 @@ export default class App extends React.Component {
               <Scene key="loading" component={Loading} hideNavBar={true} showLabel={false}/>
               <Scene key="OnboardingScreen" component={OnboardingScreen} hideNavBar={true} showLabel={false} />
               <Scene key="login" component={Login} hideNavBar={true} showLabel={false}/>
+              <Scene key="register" component={Register} hideNavBar={true} showLabel={false}/>
             </Scene>
           </Router>
 
