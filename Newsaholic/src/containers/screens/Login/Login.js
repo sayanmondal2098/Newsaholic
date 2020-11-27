@@ -8,9 +8,6 @@ import signinImage from "../../../../assects/images/signin.png"
 
 class Login extends React.Component {
   render() {
-    function handleClick(e) {
-      // console.log(JSON.stringify(rss, null, 3));
-    }
     return (
       <View style={styles.loginPage}>
         {/* Image Part */}
@@ -48,10 +45,10 @@ class Login extends React.Component {
             style={styles.textInput}
           />
         </View>
-        <View style={styles.signIn} onClick={handleClick}>
+        <View style={styles.signIn}>
           <Text style={{
             color: "white",
-          }}>Log In</Text>
+          }}  onPress={() => Actions.replace('homenews')}>Log In</Text>
         </View>
         <Text style={styles.newUser}>
           <Text
