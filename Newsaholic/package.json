@@ -22,6 +22,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "~0.63.3",
+    "react-native-elements": "^3.0.0-alpha.1",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-onboarding-swiper": "^1.1.4",
     "react-native-reanimated": "^1.13.1",
@@ -32,13 +33,16 @@
     "react-native-unimodules": "~0.11.0",
     "react-native-web": "~0.13.12",
     "react-navigation": "^4.4.3",
-    "react-navigation-stack": "^2.10.1"
+    "react-navigation-stack": "^2.10.1",
+    "util": "^0.12.3"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
     "babel-jest": "~25.2.6",
     "jest": "~25.2.6",
     "react-test-renderer": "~16.13.1",
+    "rss-parser": "^3.9.0",
+    "rss-to-json": "^1.1.1",
     "solidarity": "^3.0.0",
     "solidarity-react-native": "^2.1.2",
     "watchman": "^1.0.0"

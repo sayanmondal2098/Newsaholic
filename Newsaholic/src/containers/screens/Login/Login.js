@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faKey, faUser } from '@fortawesome/free-solid-svg-icons'
 import { Actions } from "react-native-router-flux";
 import signinImage from "../../../../assects/images/signin.png"
+// import rss from '../../../Feed/testFeed'
 
 class Login extends React.Component {
   render() {
@@ -47,7 +48,7 @@ class Login extends React.Component {
         <View style={styles.signIn}>
           <Text style={{
             color: "white",
-          }}>Log In</Text>
+          }}  onPress={() => Actions.replace('homenews')}>Log In</Text>
         </View>
         <Text style={styles.newUser}>
           <Text
@@ -62,6 +63,9 @@ class Login extends React.Component {
         </Text>
 
         {/* Google & Facebook */}
+        <View style={styles.registerWith}>
+          <Text>--- LOGIN  WITH ---</Text>
+        </View>
         <View style={styles.otherOptionContainer}>
           <View style={styles.Google}>
             <Text style={{
@@ -134,7 +138,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 55,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    marginTop: 15,
     marginBottom: 10,
     backgroundColor: "#00716F",
     paddingVertical: 10,
@@ -147,8 +151,14 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     color: "#00716F",
     fontWeight: '600',
-    marginTop: 5,
+    marginTop: -2,
     marginBottom: 10,
+  },
+  registerWith: {
+    flexDirection: "row", 
+    alignItems: "center", 
+    justifyContent: "center", 
+    marginTop: 13
   },
   otherOptionContainer: {
     flex: 1,
@@ -159,7 +169,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 55,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    marginTop: 10,
     backgroundColor: "#BB001B",
     paddingVertical: 15,
     borderRadius: 23,
@@ -172,7 +182,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 55,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    marginTop: 10,
     backgroundColor: "#3B5998",
     paddingVertical: 15,
     borderRadius: 23,
