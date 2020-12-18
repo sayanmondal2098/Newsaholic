@@ -81,17 +81,6 @@ class HomeNews extends Component {
           ))}
 
         </ul> */}
-          <ScrollView>
-            {result.map(item => {
-              <View>
-                <Text key={item}>
-                  {/* {item.title} */}
-                  {/* {item} */}
-                  {item.title}
-                </Text>
-              </View>              
-            })}
-          </ScrollView>
           {/* <SectionList
             sections={result}
             // keyExtractor={(item, index) => item + index}
