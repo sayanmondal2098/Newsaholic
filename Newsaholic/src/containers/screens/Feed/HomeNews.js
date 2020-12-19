@@ -1,5 +1,7 @@
+import { text } from '@fortawesome/fontawesome-svg-core';
 import React, { Component } from 'react'
 import { View, Text, FlatList, TouchableHighlight, SectionList } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler';
 import { HomeNewsJSON } from "../../../../assects/JSON/Home"
 
 class HomeNews extends Component {
@@ -53,21 +55,24 @@ class HomeNews extends Component {
 
   render() {
     var result = Object.entries(this.state.news);
-    // console.clear()
-    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-    if (result.length > 0) {
-      console.log(result[0])
-    }
-    console.log("------------------------")
-    console.log(result.length)
+    console.log(result)
+    // console.log("------------------------")
+    // console.log(result.length)
+    // // con
     return (
       <View>
-        {/* <FlatList
-        data={HomeNewsData}
-        renderItem={this.renderHomeNews}
-        numColumns={2}
-        keyExtractor={(item) => item[0].items.created}
-      /> */}
+        <FlatList
+        keyExtractor={item => item.findIndex}
+        data={result}
+        renderItem={({item}) => (
+          <Text>
+          {item[1]["title"]}
+          {item[1]["created"]}
+          {item[1]["description"]}
+          </Text>
+        )}
+
+      />
         {/* <ul>
           {result.map(item => (
             <li key={item}>
@@ -76,7 +81,16 @@ class HomeNews extends Component {
           ))}
 
         </ul> */}
-        <SectionList
+          {/* <SectionList
+            sections={result}
+            // keyExtractor={(item, index) => item + index}
+            renderItem={({ item }) => <Item title={item} />}
+            renderSectionHeader={({ section: { title } }) => (
+              <Text style={styles.header}>{title}</Text>
+            )}
+          /> */}
+
+        {/* <SectionList
           style={{ margin: 40 }}
           sections={this.state.news}
           renderRow={this.renderRow}
@@ -88,7 +102,7 @@ class HomeNews extends Component {
           renderSectionHeader={({ section: { title } }) => (
             <Text style={styles.header}>{title}</Text>
           )}
-        />
+        /> */}
       </View>
     )
   }
