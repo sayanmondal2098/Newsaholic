@@ -1,6 +1,6 @@
 import { text } from '@fortawesome/fontawesome-svg-core';
 import React, { Component } from 'react'
-import { View, Text, FlatList, TouchableHighlight, SectionList } from 'react-native'
+import { View, Text, FlatList, TouchableHighlight, SectionList, Image,StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import { HomeNewsJSON } from "../../../../assects/JSON/Home"
 
@@ -47,10 +47,12 @@ class HomeNews extends Component {
     // })
   }
 
-  renderRow(data) {
-    return (
-      <Text>{`${data["title"]}`}</Text>
-    )
+  renderPic(data) {
+    var a = data;
+    return (a.slice(a.indexOf("src") + 5, a.indexOf("</a>") - 3));
+    // return <Image
+    // source= {(a.slice(a.indexOf("src") + 5, a.indexOf("</a>") - 3))}
+    // />;
   }
 
   render() {
@@ -62,17 +64,21 @@ class HomeNews extends Component {
     return (
       <View>
         <FlatList
-        keyExtractor={item => item.findIndex}
-        data={result}
-        renderItem={({item}) => (
-          <Text>
-          {item[1]["title"]}
-          {item[1]["created"]}
-          {item[1]["description"]}
-          </Text>
-        )}
+          keyExtractor={item => item.findIndex}
+          data={result}
+          renderItem={({ item }) => (
+            <View>
+              {/* {item[1]["title"]}
+          {item[1]["created"]} */}
+          {/* <Text>{item[1]["description"]}</Text> */}
+          <Text>{this.renderPic(item[1]["description"])}</Text>
+          {/* <Text>{typeof(item[1]["description"])}</Text> */}
+              <Image source={{uri: this.renderPic(item[1]["description"])}} />
+            </View>
 
-      />
+          )}
+
+        />
         {/* <ul>
           {result.map(item => (
             <li key={item}>
@@ -81,7 +87,7 @@ class HomeNews extends Component {
           ))}
 
         </ul> */}
-          {/* <SectionList
+        {/* <SectionList
             sections={result}
             // keyExtractor={(item, index) => item + index}
             renderItem={({ item }) => <Item title={item} />}
