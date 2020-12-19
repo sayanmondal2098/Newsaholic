@@ -73,9 +73,7 @@ class HomeNews extends Component {
           {/* <Text>{item[1]["description"]}</Text> */}
           <Text>{this.renderPic(item[1]["description"])}</Text>
           {/* <Text>{typeof(item[1]["description"])}</Text> */}
-              <Image
-              source={this.renderPic(item[1]["description"])}
-              />
+              <Image source={{uri: this.renderPic(item[1]["description"])}} />
             </View>
 
           )}
