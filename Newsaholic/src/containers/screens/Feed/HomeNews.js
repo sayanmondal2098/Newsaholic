@@ -1,6 +1,6 @@
 import { text } from '@fortawesome/fontawesome-svg-core';
 import React, { Component } from 'react'
-import { View, Text, FlatList, TouchableHighlight, SectionList, Image,StyleSheet } from 'react-native'
+import { View, Text, FlatList, TouchableHighlight, SectionList, TouchableOpacity , Image,StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import { HomeNewsJSON } from "../../../../assects/JSON/Home"
 
@@ -46,7 +46,16 @@ class HomeNews extends Component {
     //   console.log(error)
     // })
   }
-
+  renderImage(item) {
+    var a = item;
+    return (
+        <TouchableOpacity  
+                 style={{flex:1/3,
+                 aspectRatio:1}}>
+                <Image style={{flex: 1}} resizeMode='cover' source={{ uri:  (a.slice(a.indexOf("src") + 5, a.indexOf("</a>") - 3))}}></Image>
+        </TouchableOpacity>
+    )
+}
   renderPic(data) {
     var a = data;
     return (a.slice(a.indexOf("src") + 5, a.indexOf("</a>") - 3));
@@ -70,10 +79,12 @@ class HomeNews extends Component {
             <View>
               {/* {item[1]["title"]}
           {item[1]["created"]} */}
-          {/* <Text>{item[1]["description"]}</Text> */}
-          <Text>{this.renderPic(item[1]["description"])}</Text>
+          {this.renderImage(item[1]["description"])}
+          <Text>{item[1]["description"]}</Text>
+
+          {/* <Text>{this.renderPic(item[1]["description"])}</Text> */}
           {/* <Text>{typeof(item[1]["description"])}</Text> */}
-              <Image source={{uri: this.renderPic(item[1]["description"])}} />
+             
             </View>
 
           )}
