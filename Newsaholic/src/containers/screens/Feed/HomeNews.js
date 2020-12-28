@@ -1,6 +1,6 @@
 import { text } from '@fortawesome/fontawesome-svg-core';
 import React, { Component } from 'react'
-import { View, Text, FlatList, TouchableHighlight, SectionList, TouchableOpacity , Image,StyleSheet } from 'react-native'
+import { View, Text, FlatList, TouchableHighlight, SectionList, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import { HomeNewsJSON } from "../../../../assects/JSON/Home"
 
@@ -49,19 +49,14 @@ class HomeNews extends Component {
   renderImage(item) {
     var a = item;
     return (
-        <TouchableOpacity  
-                 style={{flex:1/3,
-                 aspectRatio:1}}>
-                <Image style={{flex: 1}} resizeMode='cover' source={{ uri:  (a.slice(a.indexOf("src") + 5, a.indexOf("</a>") - 3))}}></Image>
-        </TouchableOpacity>
+      <View
+        style={{
+          flex: 1 / 3,
+          aspectRatio: 1
+        }}>
+        <Image style={{ flex: 1 }} resizeMode='cover' source={{ uri: (a.slice(a.indexOf("src") + 5, a.indexOf("</a>") - 3)) }}></Image>
+      </View>
     )
-}
-  renderPic(data) {
-    var a = data;
-    return (a.slice(a.indexOf("src") + 5, a.indexOf("</a>") - 3));
-    // return <Image
-    // source= {(a.slice(a.indexOf("src") + 5, a.indexOf("</a>") - 3))}
-    // />;
   }
 
   render() {
@@ -73,22 +68,25 @@ class HomeNews extends Component {
     return (
       <View>
         <FlatList
+          horizontal={false}
+          numColumns={2}
           keyExtractor={item => item.findIndex}
           data={result}
           renderItem={({ item }) => (
-            <View>
+            <View style={{
+              flex: 1,
+              flexDirection: 'column',
+            }}>
               {/* {item[1]["title"]}
-          {item[1]["created"]} */}
-          {this.renderImage(item[1]["description"])}
-          <Text>{item[1]["description"]}</Text>
-
-          {/* <Text>{this.renderPic(item[1]["description"])}</Text> */}
-          {/* <Text>{typeof(item[1]["description"])}</Text> */}
-             
+              {item[1]["created"]} */}
+              <TouchableOpacity>
+                {this.renderImage(item[1]["description"])}
+                <Text>{item[1]["title"]}</Text>
+              </TouchableOpacity>
+              {/* <Text>{this.renderPic(item[1]["description"])}</Text> */}
+              {/* <Text>{typeof(item[1]["description"])}</Text> */}
             </View>
-
           )}
-
         />
         {/* <ul>
           {result.map(item => (
