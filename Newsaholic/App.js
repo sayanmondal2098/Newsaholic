@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-// import NavStack from './src/navigations/Navigator';
+// import zzNavStack from './src/navigations/Navigator';
 import OnboardingScreen from './src/containers/screens/OnboardingScreen';
 import Login from "./src/containers/screens/Login/Login";
 import Loading from "./src/containers/screens/Loading/Loading";

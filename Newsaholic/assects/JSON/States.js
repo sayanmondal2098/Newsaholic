@@ -1,4 +1,4 @@
-const StateNewsJSON = {
+export const StateNewsJSON = {
    "items": [
       {
          "title": "Man in poll position",
@@ -97,8 +97,3 @@ const StateNewsJSON = {
    "category": [],
    "image": "https://www.indiatoday.in/sites/all/themes/itg/logo.png"
 }
-
-export const StateNewsData = Object.keys(StateNewsJSON).map(key => ({
-   key,
-   ...StateNewsJSON[key]
-}))
