@@ -1,21 +1,37 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react';
 
 import Login from '../containers/screens/Login/Login';
 import Register from '../containers/screens/Login/Register';
 import HomeNews from '../containers/screens/Feed/HomeNews'
+import StateNews from '../containers/screens/Feed/StateNews'
 
-const RootStack = createStackNavigator();
+const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator()
 
-
-export default function NavStack() {
+function NavStack() {
   return (
-    <RootStack.Navigator>
-      <HomeStack.Screen name="Login" component={Login} />
-      <HomeStack.Screen name="Register" component={Register} />
-      <HomeStack.Screen name="HomeNews" component={HomeNews} />
-    </RootStack.Navigator>
+    <Stack.Navigator>
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Register" component={Register} />
+      {/* <Stack.Screen name="HomeNews" component={NavDrawer} /> */}
+    </Stack.Navigator>
+  );
+}
+
+export default function NavDrawer() {
+  return (
+    <View>
+      <NavigationContainer>
+        <Drawer.Navigator>
+          <Drawer.Screen name="Stack" component={NavStack} />
+          <Drawer.Screen name="HomeNews" component={HomeNews} />
+          <Drawer.Screen name="StateNews" component={StateNews} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </View>
   );
 }
