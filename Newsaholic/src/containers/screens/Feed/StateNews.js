@@ -2,9 +2,9 @@ import { text } from '@fortawesome/fontawesome-svg-core';
 import React, { Component } from 'react'
 import { View, Text, FlatList, TouchableHighlight, SectionList, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
-import { HomeNewsJSON } from "../../../../assects/JSON/Home"
+import { StateNewsJSON } from "../../../../assects/JSON/States"
 
-class HomeNews extends Component {
+class StateNews extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,7 @@ class HomeNews extends Component {
 
   getInfo() {
     var data = []
-    var jsondata = HomeNewsJSON["items"]
+    var jsondata = StateNewsJSON["items"]
     // console.log(alldata)
     // console.table(alldata)
     alert(jsondata.length)
@@ -47,22 +47,14 @@ class HomeNews extends Component {
     // })
   }
   renderImage(item) {
-    var a = item.description;
+    var a = item;
     return (
       <View
         style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: "row",
-          aspectRatio: 4.5
+          flex: 1 / 3,
+          aspectRatio: 1
         }}>
-        <Image style={{
-          flex: 0.4, resizeMode: "center",
-          height: 100,
-          // width: 40,
-          marginRight: 4
-        }} source={{ uri: (a.slice(a.indexOf("src") + 5, a.indexOf("</a>") - 3)) }}></Image>
-        <Text style={{flex: 0.6, marginLeft: 4}}>{item.title}</Text>
+        <Image style={{ flex: 1 }} resizeMode='cover' source={{ uri: (a.slice(a.indexOf("src") + 5, a.indexOf("</a>") - 3)) }}></Image>
       </View>
     )
   }
@@ -74,30 +66,22 @@ class HomeNews extends Component {
     // console.log(result.length)
     // // con
     return (
-      <View style={{
-        marginTop: 4,
-        marginBottom: 4,
-        marginRight: 6,
-        marginLeft: 6
-      }}>
+      <View>
         <FlatList
           horizontal={false}
-          numColumns={1}
+          numColumns={2}
           keyExtractor={item => item.findIndex}
           data={result}
           renderItem={({ item }) => (
             <View style={{
               flex: 1,
               flexDirection: 'column',
-              borderWidth: 4,
-              borderRadius: 6,
-              borderColor: "#fff"
             }}>
               {/* {item[1]["title"]}
               {item[1]["created"]} */}
               <TouchableOpacity>
-                {this.renderImage(item[1])}
-                {/* <Text>{item[1]["title"]}</Text> */}
+                {this.renderImage(item[1]["description"])}
+                <Text>{item[1]["title"]}</Text>
               </TouchableOpacity>
               {/* <Text>{this.renderPic(item[1]["description"])}</Text> */}
               {/* <Text>{typeof(item[1]["description"])}</Text> */}
@@ -139,4 +123,4 @@ class HomeNews extends Component {
   }
 }
 
-export default HomeNews
+export default StateNews
