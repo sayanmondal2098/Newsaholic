@@ -2,7 +2,8 @@ import { text } from '@fortawesome/fontawesome-svg-core';
 import React, { Component } from 'react'
 import { View, Text, FlatList, TouchableHighlight, SectionList, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
-import { HomeNewsJSON } from "../../../../assects/JSON/Home"
+import { HomeNewsJSON } from "../../../../assects/JSON/HomeNewsRawData"
+import { Topic } from '../Topic'
 
 class HomeNews extends Component {
   constructor(props) {
@@ -62,7 +63,7 @@ class HomeNews extends Component {
           // width: 40,
           marginRight: 4
         }} source={{ uri: (a.slice(a.indexOf("src") + 5, a.indexOf("</a>") - 3)) }}></Image>
-        <Text style={{flex: 0.6, marginLeft: 4}}>{item.title}</Text>
+        <Text style={{ flex: 0.6, marginLeft: 4 }}>{item.title}</Text>
       </View>
     )
   }
@@ -75,36 +76,42 @@ class HomeNews extends Component {
     // // con
     return (
       <View style={{
-        marginTop: 4,
-        marginBottom: 4,
-        marginRight: 6,
-        marginLeft: 6
+        flex: 1,
+        flexDirection: "row"
       }}>
-        <FlatList
-          horizontal={false}
-          numColumns={1}
-          keyExtractor={item => item.findIndex}
-          data={result}
-          renderItem={({ item }) => (
-            <View style={{
-              flex: 1,
-              flexDirection: 'column',
-              borderWidth: 4,
-              borderRadius: 6,
-              borderColor: "#fff"
-            }}>
-              {/* {item[1]["title"]}
+        <View style={{
+          flex: 0.9,
+          marginTop: 4,
+          marginBottom: 4,
+          marginRight: 6,
+          marginLeft: 6
+        }}>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            horizontal={false}
+            numColumns={1}
+            keyExtractor={item => item.findIndex}
+            data={result}
+            renderItem={({ item }) => (
+              <View style={{
+                flex: 1,
+                flexDirection: 'column',
+                borderWidth: 4,
+                borderRadius: 6,
+                borderColor: "#fff"
+              }}>
+                {/* {item[1]["title"]}
               {item[1]["created"]} */}
-              <TouchableOpacity>
-                {this.renderImage(item[1])}
-                {/* <Text>{item[1]["title"]}</Text> */}
-              </TouchableOpacity>
-              {/* <Text>{this.renderPic(item[1]["description"])}</Text> */}
-              {/* <Text>{typeof(item[1]["description"])}</Text> */}
-            </View>
-          )}
-        />
-        {/* <ul>
+                <TouchableOpacity>
+                  {this.renderImage(item[1])}
+                  {/* <Text>{item[1]["title"]}</Text> */}
+                </TouchableOpacity>
+                {/* <Text>{this.renderPic(item[1]["description"])}</Text> */}
+                {/* <Text>{typeof(item[1]["description"])}</Text> */}
+              </View>
+            )}
+          />
+          {/* <ul>
           {result.map(item => (
             <li key={item}>
               otp: {item.title}
@@ -112,7 +119,7 @@ class HomeNews extends Component {
           ))}
 
         </ul> */}
-        {/* <SectionList
+          {/* <SectionList
             sections={result}
             // keyExtractor={(item, index) => item + index}
             renderItem={({ item }) => <Item title={item} />}
@@ -121,7 +128,7 @@ class HomeNews extends Component {
             )}
           /> */}
 
-        {/* <SectionList
+          {/* <SectionList
           style={{ margin: 40 }}
           sections={this.state.news}
           renderRow={this.renderRow}
@@ -134,6 +141,14 @@ class HomeNews extends Component {
             <Text style={styles.header}>{title}</Text>
           )}
         /> */}
+        </View>
+        <View style={{
+          flex: 0.1
+        }}>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <Topic />
+          </ScrollView>
+        </View>
       </View>
     )
   }
